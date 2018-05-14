@@ -12,6 +12,7 @@ public class ButtonManager : MonoBehaviour
 	private List<GameObject> dice = new List<GameObject>();
 	private float xPos = 0f;
 	private float zPos = 0f;
+	private float offset = 3.5f;
 
 	private bool rollButtonPressed = false;
 
@@ -35,20 +36,20 @@ public class ButtonManager : MonoBehaviour
 		GameObject go = Instantiate(diceType, new Vector3(xPos, 5, zPos), Quaternion.identity);
 		dice.Add(go);
 
-		if (xPos == 0) xPos += 3f;
+		if (xPos == 0) xPos += offset;
 
 		else if (xPos > 0) xPos = (xPos * -1);
 
-		else if (xPos < 0) xPos = (xPos * -1) + 3f;
+		else if (xPos < 0) xPos = (xPos * -1) + offset;
 
 		if (dice.Count % 18 == 0)
 		{
 			xPos = 0;
-			if (zPos == 0) zPos += 3f;
+			if (zPos == 0) zPos += offset;
 
 			else if (zPos > 0) zPos = (zPos * -1);
 
-			else if (zPos < 0) zPos = (zPos * -1) + 3f;
+			else if (zPos < 0) zPos = (zPos * -1) + offset;
 		}
 	}
 
