@@ -10,10 +10,10 @@ public class RotationManager : MonoBehaviour
        print(gameObject.name + ": " + GetHighestFace(gameObject).name);
 	}
 
-    Transform GetHighestFace(GameObject parent)
+    Transform GetHighestFace(GameObject parent) // All dice have a transform child marking each face, where the highest face is the result of the roll
     {
         Transform[] faces = parent.GetComponentsInChildren<Transform>();
-        faces = faces.Skip(1).ToArray();
+        faces = faces.Skip(1).ToArray(); // The first element is the dice itself; we only want the rotation determining faces
         Transform highestFace = faces[0];
         foreach (Transform face in faces)
         {
