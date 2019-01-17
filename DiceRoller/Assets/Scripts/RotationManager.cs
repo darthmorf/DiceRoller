@@ -27,6 +27,20 @@ public class RotationManager : MonoBehaviour
         }
 	}
 
+    string GetD6Value2()
+    {
+        Transform[] faces = gameObject.GetComponentsInChildren<Transform>();
+        Transform highestFace = faces[0];
+        foreach (Transform face in faces.Skip(0).ToArray())
+        {
+            if (face.position.y > highestFace.position.y)
+            {
+                highestFace = face;
+            }
+        }
+        return highestFace.name;
+    }
+
     int GetD4Value (Vector3 rawRotation)
     {
         Vector3 roundedRotation = new Vector3(
