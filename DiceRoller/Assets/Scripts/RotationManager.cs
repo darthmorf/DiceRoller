@@ -5,11 +5,6 @@ using UnityEngine;
 
 public class RotationManager : MonoBehaviour
 {	
-	void Update ()
-    {
-       print(gameObject.name + ": " + GetHighestFace(gameObject).name);
-	}
-
     Transform GetHighestFace(GameObject parent) // All dice have a transform child marking each face, where the highest face is the result of the roll
     {
         Transform[] faces = parent.GetComponentsInChildren<Transform>();
